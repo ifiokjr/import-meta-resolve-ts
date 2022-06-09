@@ -1,0 +1,24 @@
+{
+  "name": "import-meta-resolve-ts",
+  "version": "0.0.0",
+  "description": "Created with `create-monots`",
+  "keywords": [],
+  "license": "MIT",
+  "contributors": [],
+  "sideEffects": false,
+  "type": "module",
+  "module": "",
+  "browser": "",
+  "types": "",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "monots": {
+    "entrypoints": [
+      "index.ts"
+    ]
+  }
+}
