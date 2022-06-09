@@ -1,29 +1,31 @@
-<p align="center">
-  <a href="#">
-    <img width="300" height="300" src="./.monots/assets/logo.svg" alt="svg logo from openmoji.org" title="SVG Logo from openmoji.org" />
-  </a>
-</p>
+# import-meta-resolve
 
-<p align="center">
-  Supercharge your next <em>TypeScript</em> project.
-</p>
+Run the following to enable corepack and install all dependencies (for using `pnpm`).
 
-<br />
+```bash
+npm run bootstrap
+```
 
-<p align="center">
-  <a href="#getting-started"><strong>Getting Started</strong></a> ·
-  <a href="#why"><strong>Why?</strong></a> ·
-  <a href="#plans"><strong>Plans</strong></a> ·
-  <a href="./docs/docs"><strong>Documentation</strong></a> ·
-  <a href="./.github/contributing.md"><strong>Contributing</strong></a>
-</p>
+At this point you'll notice the `dist` folders are created for each package. Take a look at `packages/simple/dist/index.esm.js`. It is a symlink which links to this source file `packages/simple/src/index.ts` during development. It is replaced with the bundled output during a build.
 
-<br />
+Now start the tests to see the error:
 
-<p align="center">
-  <a href="https://github.com/monots/monots/actions?query=workflow:ci">
-    <img src="https://github.com/monots/monots/workflows/ci/badge.svg?branch=main" alt="Continuous integration badge for github actions" title="CI Badge" />
-  </a>
-</p>
+```bash
+pnpm test:watch
+```
 
-<br />
+The test file is located in `packages/with-meta/src/with-meta.spec.ts`.
+
+If you prefer running the node code directory you can use the following command:
+
+```bash
+node --experimental-import-meta-resolve packages/with-meta/src/import-meta-resolve.js
+```
+
+The test that runs using `import-meta-resolve` is failing when it encounters the `.ts` extension via the symlinked entrypoint.
+
+Running native node `import.meta.resolve` for the same module doesn't have the same issue.
+
+```bash
+node --experimental-import-meta-resolve packages/with-meta/src/native.js
+```

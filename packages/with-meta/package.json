@@ -1,7 +1,7 @@
 {
-  "name": "simple",
+  "name": "with-meta",
   "version": "0.0.0",
-  "description": "Created with `create-monots`",
+  "description": "",
   "keywords": [],
   "license": "MIT",
   "contributors": [],
@@ -27,6 +27,10 @@
   "files": [
     "dist"
   ],
+  "dependencies": {
+    "import-meta-resolve": "^2.0.2",
+    "simple": "^0.0.0"
+  },
   "publishConfig": {
     "access": "public"
   },
